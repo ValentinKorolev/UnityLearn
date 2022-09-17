@@ -57,6 +57,11 @@ namespace Learn
             if (isJumpPressing)
             {
                 yVelocity = CalculateJumpVelocity(yVelocity);
+
+                if (yVelocity > 6f)
+                {
+                    yVelocity *= 0.9f;
+                }
             }
             
             return yVelocity;
@@ -76,6 +81,7 @@ namespace Learn
             {
                 yVelocity *= 0.5f;
             }
+            Debug.Log($"Hero, velocityY = {yVelocity}");
             return yVelocity;
         }
 
