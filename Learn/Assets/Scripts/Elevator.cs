@@ -7,37 +7,38 @@ namespace Learn
         [SerializeField] private float _speed;
 
         private Rigidbody2D _rigidbody;
+        private float _startPosY;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody.isKinematic = false;
+            _startPosY = transform.position.y;
         }
 
-
-        private void FixedUpdate()
+        public void ElevatorMove()
         {
-            var yVelocity = CalculateYVelocuty();
-                  
-           _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, yVelocity);
-                                
-        }
+            Debug.Log("ElevatorUp");
 
-        private float CalculateYVelocuty()
-        {
-            float yVelocity =_rigidbody.velocity.y;
-
-            if (transform.position.y < 4 && transform.position.y <=0.5)
-            {               
-                yVelocity += _speed;
-                Debug.Log($"Elevator, velocityY = {yVelocity}");
-            }
-            else if(transform.position.y >= 4)
+            if(_rigidbody.isKinematic == false && _startPosY <  _startPosY + 0.5f)
             {
-                yVelocity -= _speed;
-                Debug.Log($"Elevator ,velocityY = {yVelocity}");
-            }
+                _rigidbody.isKinematic = true;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y + _speed);
 
-            return yVelocity;
+            }else if (transform.position.y > _startPosY)
+            {
+                _rigidbody.isKinematic = true;
+                Debug.Log("ElevatorDown");
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, (_rigidbody.velocity.y *0.5f)* Time.deltaTime);
+                _rigidbody.isKinematic = false;
+            }
+           
+        }
+
+        public void ElevatorStop()
+        {
+            Debug.Log("ElevatorStop");
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y - _speed);
         }
     }
 }
