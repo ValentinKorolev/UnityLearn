@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 2027749148}
   - component: {fileID: 2027749147}
   - component: {fileID: 2027749152}
-  - component: {fileID: 2027749151}
+  - component: {fileID: 2027749154}
   - component: {fileID: 2027749153}
   m_Layer: 6
   m_Name: Elevator
@@ -792,7 +792,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2294153}
+  m_Offset: {x: -0.000000059604645, y: -0.2294153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -803,7 +803,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5411694}
+  m_Size: {x: 0.538797, y: 0.5411694}
   m_EdgeRadius: 0
 --- !u!50 &2027749148
 Rigidbody2D:
@@ -893,48 +893,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 45.265, y: 0, z: 0}
---- !u!114 &2027749151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027749145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf90b6f909534784a86c4da20613162d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _elevatorUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2027749153}
-        m_TargetAssemblyTypeName: Learn.Elevator, Assembly-CSharp
-        m_MethodName: ElevatorUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _elevatorDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2027749153}
-        m_TargetAssemblyTypeName: Learn.Elevator, Assembly-CSharp
-        m_MethodName: ElevatorDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2027749152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,9 +909,9 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2027749151}
-        m_TargetAssemblyTypeName: Learn.MoveElevator, Assembly-CSharp
-        m_MethodName: ChangeMoveElevator
+      - m_Target: {fileID: 2027749153}
+        m_TargetAssemblyTypeName: Learn.Elevator, Assembly-CSharp
+        m_MethodName: ElevatorMove
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -976,6 +934,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+--- !u!114 &2027749154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027749145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4992765a8b0e13c459075144823485ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2027749153}
+        m_TargetAssemblyTypeName: Learn.Elevator, Assembly-CSharp
+        m_MethodName: ElevatorStop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2087456849
 GameObject:
   m_ObjectHideFlags: 0
