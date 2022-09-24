@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Props
+  - 
+  - 
   - 
   - 
   - 
@@ -40,10 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Props
-    uniqueID: 466102913
-    locked: 0
-  - name: Creatures
-    uniqueID: 171273141
     locked: 0
